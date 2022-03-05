@@ -37,15 +37,15 @@ abstract class TypeEanUpcBase implements TypeInterface
         // Add zero padding in front
         $code = str_pad($code, $dataLength, '0', STR_PAD_LEFT);
 
-        $checksumDigit = $this->calculateChecksumDigit($code);
+//         $checksumDigit = $this->calculateChecksumDigit($code);
 
-        if (strlen($code) == $dataLength) {
-            $code .= $checksumDigit;
-        } elseif ($checksumDigit !== intval($code[$dataLength])) {
-            // If length of given barcode is same as final length, barcode is including checksum
-            // Make sure that checksum is the same as we calculated
-            //  throw new InvalidCheckDigitException();
-        }
+//         if (strlen($code) == $dataLength) {
+//             $code .= $checksumDigit;
+//         } elseif ($checksumDigit !== intval($code[$dataLength])) {
+//             // If length of given barcode is same as final length, barcode is including checksum
+//             // Make sure that checksum is the same as we calculated
+//             //  throw new InvalidCheckDigitException();
+//         }
 
         if ($this->upca || $this->upce) {
             $code = '0' . $code;
